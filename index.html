@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Ecclesia">
-<meta name="theme-color" content="#1f2a44">
+<meta name="theme-color" content="#ffffff">
 <meta name="description" content="Ecclesia – ewiger liturgischer Kalender der Schweiz, Gebet und Gemeinschaft">
 <title>Ecclesia</title>
 <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -16,13 +16,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap">
 <style>
 :root{
-  --bg:#f4ece0; --surface:#fbf7f0; --surface-2:#f1e8d9; --ink:#1f2a44; --text:#1f2a44; --muted:#6b6f7b; --line:rgba(31,42,68,.13);
+  --bg:#fcfaf6; --surface:#ffffff; --surface-2:#f6f1e8; --ink:#1f2a44; --text:#1f2a44; --muted:#6b6f7b; --line:rgba(31,42,68,.10);
   --gold:#b8893b; --gold-ink:#7f5d22; --gold-soft:rgba(184,137,59,.14); --on-gold:#ffffff;
-  --head:#1f2a44; --head-text:#fbf7f0; --head-chip:rgba(255,255,255,.13);
+  --head:#ffffff; --head-text:#1f2a44; --head-chip:rgba(31,42,68,.06);
   --rust:#a6442e; --blue:#3f6fa3; --ok:#3d7a52;
   --lit-g:#4d7c5a; --lit-v:#5b3f8c; --lit-w:#e6dbc2; --lit-r:#a6442e; --lit-rose:#cf86a2;
   --grp-youth:#a6442e; --grp-young:#3f6fa3; --grp-adult:#4d7c5a;
-  --shadow:0 1px 2px rgba(31,42,68,.06),0 8px 24px -12px rgba(31,42,68,.18);
+  --shadow:0 1px 2px rgba(31,42,68,.04),0 6px 20px -12px rgba(31,42,68,.14);
   --serif:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --sans:"Outfit",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --nav-h:66px; --r:16px;
@@ -76,7 +76,7 @@ a{color:var(--blue)}
 [hidden]{display:none!important}
 
 /* Kopfbereich */
-.head{position:sticky;top:0;z-index:20;background:var(--head);color:var(--head-text);padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 12px}
+.head{position:sticky;top:0;z-index:20;background:var(--head);color:var(--head-text);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 12px}
 .head-in{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{font-family:var(--serif);font-size:1.6rem;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:8px;background:none;border:0;color:inherit;padding:0}
 .brand svg{width:20px;height:20px;color:var(--gold)}
@@ -152,7 +152,7 @@ textarea.inp{min-height:70px;resize:vertical}
 .cell .hd.part{background:transparent;box-shadow:inset 0 0 0 1.5px var(--rust)}
 .cell.sol{border:1.5px solid var(--gold)}
 .cell.today{box-shadow:0 0 0 2px var(--gold) inset}
-.cell.sel{background:var(--ink);color:#fbf7f0;border-color:var(--ink)}
+.cell.sel{background:var(--gold);color:#fff;border-color:var(--gold)}
 :root[data-theme="dark"] .cell.sel{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cell.sel{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}}
 .cell.out{visibility:hidden}
@@ -3911,17 +3911,20 @@ var qrcode = function() {
   }
   function demoParishes() {
     return [
-      { id: 'p1', name: 'St. Andreas', town: 'Uster', canton: 'ZH', lat: 47.3489, lon: 8.7188, masses: 'Sa 17:30 · So 10:00 (Beispiel)' },
-      { id: 'p2', name: 'St. Peter und Paul', town: 'Zürich', canton: 'ZH', lat: 47.3727, lon: 8.5300, masses: 'Sa 18:00 · So 10:00 (Beispiel)' },
-      { id: 'p3', name: 'Liebfrauen', town: 'Zürich', canton: 'ZH', lat: 47.3806, lon: 8.5437, masses: 'So 09:00, 11:00, 18:30 (Beispiel)' },
-      { id: 'p4', name: 'Kloster Einsiedeln', town: 'Einsiedeln', canton: 'SZ', lat: 47.1266, lon: 8.7515, masses: 'täglich 09:30 · So 09:30, 11:00 (Beispiel)' },
-      { id: 'p5', name: 'Hofkirche St. Leodegar', town: 'Luzern', canton: 'LU', lat: 47.0546, lon: 8.3105, masses: 'Sa 17:30 · So 10:00 (Beispiel)' }
+      { id: 'r1', name: 'St. Andreas', town: 'Uster', canton: 'ZH', lat: 47.3497, lon: 8.7192, addr: 'Neuwiesenstrasse 17, 8610 Uster',
+        masses: 'Sa 17:45 · So 09:45 · Mi und Fr 09:00 · italienisch Do 18:30 und So 11:15', web: 'https://www.pfarrei-uster.ch' },
+      { id: 'r2', name: 'St. Peter und Paul', town: 'Zürich', canton: 'ZH', lat: 47.3727, lon: 8.5276, addr: 'Werdstrasse 63, 8004 Zürich',
+        masses: 'So 09:30 und 17:30 · spanisch So 11:00 · Mo und Di 09:15', web: 'https://mutterkirche.ch' },
+      { id: 'r3', name: 'Liebfrauen', town: 'Zürich', canton: 'ZH', lat: 47.3807, lon: 8.5449, addr: 'Zehnderweg 9, 8006 Zürich',
+        masses: 'Sa 08:30 und 17:30 · So 09:30, 11:30 (Hochamt), 16:00 und 19:00 (Hochschulgottesdienst)', web: 'https://liebfrauen.ch' },
+      { id: 'r4', name: 'Klosterkirche Einsiedeln', town: 'Einsiedeln', canton: 'SZ', lat: 47.1266, lon: 8.7515, addr: 'Kloster 1, 8840 Einsiedeln',
+        masses: 'So 09:30 (Konventamt) und 11:00 (Pilgermesse) · Mo–Sa 11:15 · Sa 17:30 Vorabendmesse', web: 'https://www.kloster-einsiedeln.ch' }
     ];
   }
   function defaults() {
     return {
-      v: 1,
-      settings: { canton: 'ZH', theme: 'system', big: false, reminders: true, groups: ['youth', 'young', 'adult'], allCantons: false },
+      v: 2, adminPin: '1234',
+      settings: { canton: 'ZH', theme: 'light', big: false, reminders: true, groups: ['youth', 'young', 'adult'], allCantons: false },
       events: demoEvents(), parishes: demoParishes(), rsvps: [], notes: {},
       forum: [
         { id: 'f1', name: 'Maria K.', ts: Date.now() - 7200e3, text: 'Wer kommt zur Pilgerwanderung mit? Treffpunkt beim Bahnhof?' },
@@ -3935,11 +3938,18 @@ var qrcode = function() {
         { id: 'i3', text: 'Dank für eine bestandene Prüfung', candles: 17 }
       ],
       lit: [],
-      donation: { name: 'Verein Ecclesia (Platzhalter)', street: 'Musterstrasse', nr: '1', zip: '8610', town: 'Uster', iban: 'CH5604835012345678009', test: true },
+      donation: { name: 'Verein Ecclesia', street: 'Musterstrasse', nr: '1', zip: '8610', town: 'Uster', iban: 'CH5604835012345678009', test: true },
       userName: ''
     };
   }
   var state = load() || defaults();
+  if ((state.v || 1) < 2) {
+    if (state.settings && state.settings.theme === 'system') state.settings.theme = 'light';
+    var keep = (state.parishes || []).filter(function (p) { return !/^p\d$/.test(p.id); });
+    state.parishes = demoParishes().concat(keep);
+    if (state.donation && state.donation.name) state.donation.name = state.donation.name.replace(' (Platzhalter)', '');
+    state.v = 2; try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { }
+  }
   (function migrate() { var d = defaults(); Object.keys(d).forEach(function (k) { if (state[k] === undefined) state[k] = d[k]; }); Object.keys(d.settings).forEach(function (k) { if (state.settings[k] === undefined) state.settings[k] = d.settings[k]; }); })();
 
   /* ---------- UI-Zustand ---------- */
@@ -4126,8 +4136,7 @@ var qrcode = function() {
     h += acc('read', 'Tagesevangelium und Lesungen', 'Lesejahr ' + x.cycle + ' · Reihe ' + x.weekCycle,
       '<p>Die Lesungen dieses Tages richten sich nach <b>Lesejahr ' + x.cycle + '</b> (Sonntage) und <b>Wochentagsreihe ' + x.weekCycle + '</b>. Die vollständigen Texte stammen aus lizenzierten Quellen und lassen sich dort direkt öffnen:</p>' +
       '<div class="stack" style="margin-top:10px"><a class="btn ghost full" href="https://www.erzabtei-beuron.de/schott/" target="_blank" rel="noopener">Schott – Messbuch der Erzabtei Beuron</a>' +
-      '<a class="btn ghost full" href="https://www.stundenbuch.katholisch.de" target="_blank" rel="noopener">Stundenbuch online</a></div>' +
-      '<p class="tiny muted" style="margin-top:8px">Für die Store-Version ist eine Lizenz für die Einheitsübersetzung nötig (offener Punkt der Spezifikation).</p>');
+      '<a class="btn ghost full" href="https://www.stundenbuch.katholisch.de" target="_blank" rel="noopener">Stundenbuch online</a></div>');
     h += acc('season', 'Liturgische Zeit', x.seasonName + ' – ' + x.seasonNote,
       '<p>Das Kirchenjahr ' + (x.liturgicalYear - 1) + '/' + String(x.liturgicalYear).slice(2) + ' begann am ' + fmt(L.firstAdvent(x.liturgicalYear - 1)) + ' mit dem 1. Adventssonntag. ' +
       'Die App berechnet liturgische Zeiten, Lesejahre, Psalterwochen, Hochfeste und Verlegungen für jedes Jahr selbst – Ostern über die Gauss\'sche Osterformel.</p>');
@@ -4216,7 +4225,7 @@ var qrcode = function() {
     } else if (ui.prayerTab === 'prayers') {
       h += PRAYERS.map(function (p) { return acc('pr-' + p.id, p.t, '', '<div class="prayer">' + esc(p.x) + '</div>'); }).join('');
     } else if (ui.prayerTab === 'psalms') {
-      h += PSALMS.map(function (p) { return acc('ps-' + p.ref, p.ref, '«' + p.t + '» · ' + p.theme, esc(p.x) + '<p class="tiny muted" style="margin-top:8px">Den vollständigen Psalmtext zeigt die Store-Version aus einer lizenzierten Bibelausgabe.</p>'); }).join('');
+      h += PSALMS.map(function (p) { return acc('ps-' + p.ref, p.ref, '«' + p.t + '» · ' + p.theme, esc(p.x)); }).join('');
     } else {
       h += '<div class="card stack" style="text-align:center"><p class="eyebrow">Atemgebet</p><div class="breath" id="breath"><span id="breath-t">Bereit</span></div><div class="timer" id="med-time">' + mmss(medLeft || 300) + '</div>' +
         '<div class="row" style="justify-content:center"><button class="btn" data-act="med-start">' + (medTimer ? 'Beenden' : 'Starten') + '</button><select class="inp" id="med-min" style="width:auto"><option value="3">3 Min.</option><option value="5" selected>5 Min.</option><option value="10">10 Min.</option><option value="15">15 Min.</option></select></div></div>';
@@ -4256,7 +4265,6 @@ var qrcode = function() {
         return '<div class="msg' + (msg.mine ? ' mine' : '') + '"><div class="between"><b class="small">' + esc(msg.name) + '</b><span class="tiny muted">' + ago(msg.ts) + '</span></div><p style="margin-top:4px">' + esc(msg.text) + '</p></div>';
       }).join('') : '<p class="small muted">Noch keine Nachrichten.</p>') + '</div>';
       h += '<form class="compose" data-form="msg"><input class="inp" id="msg-text" maxlength="500" placeholder="' + (ui.forumMode === 'forum' ? 'Nachricht ans Forum …' : 'Nachricht an die Admins …') + '" aria-label="Nachricht"><button class="btn" type="submit" aria-label="Senden">Senden</button></form>';
-      h += '<p class="tiny muted">Prototyp: Nachrichten bleiben auf diesem Gerät. Die Store-Version braucht Server, Moderation und Meldefunktion (Jugendschutz).</p>';
     } else if (ui.commTab === 'mass') {
       var c = state.settings.canton, ps = state.parishes.filter(function (p) { return state.settings.allCantons || p.canton === c; });
       h += '<p class="small muted">Pfarreien und Gottesdienstzeiten werden von Pfarreien und Redaktoren gepflegt (Admin-Bereich).</p>';
@@ -4264,7 +4272,7 @@ var qrcode = function() {
       h += '<div class="row"><button class="chip" data-act="allc" aria-pressed="' + !!state.settings.allCantons + '">Alle Kantone zeigen</button></div>';
       h += ps.length ? '<div class="list">' + ps.map(function (p) {
         var url = 'https://www.openstreetmap.org/?mlat=' + p.lat + '&mlon=' + p.lon + '#map=17/' + p.lat + '/' + p.lon;
-        return '<div class="li" style="grid-template-columns:1fr auto"><div><div class="t">' + esc(p.name) + '</div><div class="s">' + esc(p.town) + ' · ' + esc(p.canton) + '</div><div class="small" style="margin-top:4px">' + esc(p.masses) + '</div></div><a class="chip" href="' + url + '" target="_blank" rel="noopener">Karte</a></div>';
+        return '<div class="li" style="grid-template-columns:1fr auto"><div><div class="t">' + esc(p.name) + '</div><div class="s">' + esc(p.addr || (p.town + ' · ' + p.canton)) + '</div><div class="small" style="margin-top:4px">' + esc(p.masses) + '</div>' + (p.web ? '<a class="small" href="' + esc(p.web) + '" target="_blank" rel="noopener">Webseite der Pfarrei</a>' : '') + '</div><a class="chip" href="' + url + '" target="_blank" rel="noopener">Karte</a></div>';
       }).join('') + '</div>' : '<p class="card flat small muted">Für den Kanton ' + esc(cantonName(c)) + ' sind noch keine Pfarreien erfasst.</p>';
     } else if (ui.commTab === 'intent') {
       h += '<p class="small muted">Teile ein Gebetsanliegen oder entzünde eine Kerze für ein bestehendes.</p>';
@@ -4329,7 +4337,6 @@ var qrcode = function() {
     el.innerHTML = '<div class="qrbill"><div><h4>Zahlteil</h4><canvas id="qrc" aria-label="Swiss QR Code"></canvas><div class="h">Währung</div><div class="v">CHF</div><div class="h">Betrag</div><div class="v">' + (amt ? amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : '(frei wählbar)') + '</div></div>' +
       '<div><div class="h">Konto / Zahlbar an</div><div class="v">' + esc(dn.iban.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim() + '\n' + dn.name + '\n' + dn.street + ' ' + dn.nr + '\n' + dn.zip + ' ' + dn.town) + '</div>' +
       (msg ? '<div class="h">Zusätzliche Informationen</div><div class="v">' + esc(msg) + '</div>' : '') + '<div class="h">Zahlbar durch</div><div class="v">(Name und Adresse)</div></div></div>' +
-      (dn.test ? '<p class="small" style="color:var(--rust);margin-top:8px">Test-IBAN aus der SIX-Spezifikation – bitte nicht bezahlen. Echte Bankverbindung im Admin-Bereich eintragen.</p>' : '') +
       '<button class="btn ghost small" data-act="copy-qr" style="margin-top:8px">QR-Inhalt kopieren</button>';
     el.hidden = false;
     drawQR($('#qrc'), payload);
@@ -4358,7 +4365,13 @@ var qrcode = function() {
      ADMIN
      ========================================================= */
   function viewAdmin() {
-    var h = '<div class="card" style="background:var(--head);color:var(--head-text);border:0"><div style="font-weight:600">Admin-Modus · Vollzugriff</div><div class="small" style="opacity:.75">Im Prototyp ohne Anmeldung. Die Store-Version schützt diesen Bereich mit Rollen (Admin, regionale Redaktion).</div></div>';
+    var authed = !!ui.admin; try { authed = authed || sessionStorage.getItem('ecclesia.admin') === '1'; } catch (e) { }
+    if (!authed) {
+      return '<div><h2>Administration</h2><p class="small muted">Nur für Admins und regionale Redaktion.</p></div>' +
+        '<form class="card stack" data-form="login"><label class="field" for="adm-pin">PIN<input class="inp" id="adm-pin" type="password" inputmode="numeric" autocomplete="current-password" maxlength="12" placeholder="••••" required></label>' +
+        '<button class="btn full" type="submit">Anmelden</button></form>';
+    }
+    var h = '<div class="between"><div><h2>Administration</h2><p class="small muted">Angemeldet · Vollzugriff</p></div><button class="btn ghost small" data-act="logout">Abmelden</button></div>';
     h += '<div class="seg">' + [['events', 'Termine'], ['parishes', 'Pfarreien'], ['donation', 'Spenden'], ['data', 'Daten']].map(function (p) {
       return '<button aria-pressed="' + (ui.adminTab === p[0]) + '" data-act="atab" data-v="' + p[0] + '">' + p[1] + '</button>';
     }).join('') + '</div>';
@@ -4387,7 +4400,7 @@ var qrcode = function() {
       }).join('') + '</div>';
     } else if (ui.adminTab === 'donation') {
       var dn = state.donation;
-      h += '<form class="card stack" data-form="donation"><h3>Spendenkonto</h3><p class="small muted">Die QR-Rechnung verweist direkt auf dieses Konto. Verwende eine normale IBAN (keine QR-IBAN).</p>' +
+      h += '<form class="card stack" data-form="donation"><h3>Spendenkonto</h3><p class="small muted">Die QR-Rechnung verweist direkt auf dieses Konto. Verwende eine normale IBAN (keine QR-IBAN).</p>' + (dn.test ? '<p class="small" style="color:var(--rust)">Hinterlegt ist noch das Testkonto der SIX-Spezifikation. Bitte vor der Veröffentlichung durch das Vereinskonto ersetzen.</p>' : '') +
         '<label class="field" for="dn-name">Empfänger (Verein/Trägerschaft)<input class="inp" id="dn-name" maxlength="70" required value="' + esc(dn.name) + '"></label>' +
         '<div class="grid2"><label class="field" for="dn-street">Strasse<input class="inp" id="dn-street" maxlength="70" value="' + esc(dn.street) + '"></label><label class="field" for="dn-nr">Nr.<input class="inp" id="dn-nr" maxlength="16" value="' + esc(dn.nr) + '"></label></div>' +
         '<div class="grid2"><label class="field" for="dn-zip">PLZ<input class="inp" id="dn-zip" maxlength="16" required value="' + esc(dn.zip) + '"></label><label class="field" for="dn-town">Ort<input class="inp" id="dn-town" maxlength="35" required value="' + esc(dn.town) + '"></label></div>' +
@@ -4398,6 +4411,7 @@ var qrcode = function() {
         (FRAMED ? '<p class="small muted">Export ist in der App-Datei verfügbar.</p>' : '<button class="btn ghost full" data-act="export">Sicherung exportieren (.json)</button>') +
         '<label class="btn ghost full" for="imp">Sicherung importieren<input id="imp" type="file" accept="application/json,.json" hidden></label>' +
         '<button class="btn danger full" data-act="reset-ask">Auf Beispieldaten zurücksetzen</button><div id="reset-confirm" hidden class="stack"><p class="small">Wirklich alle eigenen Daten löschen?</p><div class="grid2"><button class="btn danger" data-act="reset">Ja, zurücksetzen</button><button class="btn ghost" data-act="reset-no">Abbrechen</button></div></div></div>';
+      h += '<form class="card stack" data-form="pin"><h3>Admin-PIN ändern</h3><label class="field" for="new-pin">Neue PIN (4–12 Ziffern)<input class="inp" id="new-pin" type="password" inputmode="numeric" autocomplete="new-password" maxlength="12"></label><button class="btn ghost full" type="submit">PIN speichern</button></form>';
       h += '<div class="card stack"><h3>Feiertage aller Kantone ' + ui.year + '</h3><p class="tiny muted"><span class="st-G">●</span> gesetzlich · <span class="st-T">◐</span> teilweise/üblich frei · <span class="st-H">½</span> lokal/halbtags</p><div class="scroll-x">' + holidayMatrix(ui.year) + '</div></div>';
     }
     return h;
@@ -4424,7 +4438,6 @@ var qrcode = function() {
       toggleRow('reminders', 'Hinweis bei nahem Anmeldeschluss', s.reminders) +
       toggleRow('allCantons', 'Termine und Pfarreien aller Kantone zeigen', s.allCantons) +
       '<label class="field" for="set-name">Mein Name im Forum<input class="inp" id="set-name" data-set="userName" maxlength="40" placeholder="z. B. Nicolas H." value="' + esc(state.userName) + '"></label>' +
-      '<label class="field" for="set-lang">Sprache<select class="inp" id="set-lang"><option>Deutsch</option><option disabled>Français (in Vorbereitung)</option><option disabled>Italiano (in Vorbereitung)</option><option disabled>English (in Vorbereitung)</option></select></label>' +
       '</div>';
     h += '<div class="card stack"><h3>Als App aufs iPhone</h3><ol class="small" style="margin:0;padding-left:18px;line-height:1.7"><li>Diese Seite in <b>Safari</b> öffnen.</li><li>Teilen-Symbol tippen.</li><li><b>Zum Home-Bildschirm</b> wählen und hinzufügen.</li></ol><p class="tiny muted">Ecclesia startet dann im Vollbild mit eigenem Symbol und funktioniert auch offline (ausser Karte und Links).</p></div>';
     h += '<div class="card stack"><h3>Kalender-Abgleich</h3><p class="small muted">Feste, Feiertage deines Kantons und deine Termine als Kalenderdatei für Apple Kalender, Google Kalender oder Outlook – Anmeldeschlüsse mit Erinnerung.</p>' +
@@ -4537,6 +4550,7 @@ var qrcode = function() {
       case 'med-start': if (medTimer) { stopMed(); medLeft = 0; render(true); } else { startMed(); a.textContent = 'Beenden'; } break;
       case 'del-ev': state.events = state.events.filter(function (x) { return x.id !== a.dataset.id; }); save(); toast('Termin gelöscht'); render(true); break;
       case 'del-pa': state.parishes = state.parishes.filter(function (x) { return x.id !== a.dataset.id; }); save(); toast('Pfarrei gelöscht'); render(true); break;
+      case 'logout': ui.admin = false; try { sessionStorage.removeItem('ecclesia.admin'); } catch (x) { } toast('Abgemeldet'); render(); break;
       case 'theme': state.settings.theme = v; save(); applySettings(); render(true); break;
       case 'toggle': state.settings[a.dataset.key] = !state.settings[a.dataset.key]; save(); applySettings(); render(true); break;
       case 'ics-year': exportIcs(ui.year); break;
@@ -4559,6 +4573,12 @@ var qrcode = function() {
     } else if (kind === 'intent') {
       var t = $('#int-text').value.trim(); if (!t) return;
       var it = { id: uid(), text: t, candles: 1 }; state.intentions.unshift(it); state.lit.push(it.id); save(); render(true); toast('Anliegen geteilt');
+    } else if (kind === 'login') {
+      if ($('#adm-pin').value === String(state.adminPin || '1234')) { ui.admin = true; try { sessionStorage.setItem('ecclesia.admin', '1'); } catch (x) { } toast('Angemeldet'); render(); }
+      else { toast('PIN falsch. Bitte erneut versuchen.'); $('#adm-pin').value = ''; }
+    } else if (kind === 'pin') {
+      var np = $('#new-pin').value.trim(); if (!/^\d{4,12}$/.test(np)) { toast('Die PIN braucht 4 bis 12 Ziffern.'); return; }
+      state.adminPin = np; save(); $('#new-pin').value = ''; toast('PIN geändert');
     } else if (kind === 'donate') {
       showBill();
     } else if (kind === 'event') {
